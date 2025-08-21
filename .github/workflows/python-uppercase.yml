@@ -34,10 +34,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Install Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.13'
+      # - name: Install Python
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: '3.13'
 
       - name: Check python version
         run: python -V
