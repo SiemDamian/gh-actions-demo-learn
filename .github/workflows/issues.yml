@@ -15,7 +15,7 @@ jobs:
         
       - name: Add the comment
         run: |
-          gh issue comment $ISSUE --body "Wow, we have a new issue!" --repo $REPO
+          COMMENT_ID=$(gh issue comment $ISSUE --body "Wow, we have a new issue!" --repo $REPO)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
