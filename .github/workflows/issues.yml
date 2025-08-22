@@ -2,7 +2,7 @@ name: Auto-comment-issue
 
 on:
   issues:
-    types: [opened]
+    types: opened
 
 jobs:
   add_comment:
@@ -11,14 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Debug event payload
-        run: echo '${{ toJson(github.event) }}'
-        
+        run: echo "${{ toJson(github.event) }}"
+
       - name: Add the comment
+        id: add_comment
         run: |
           COMMENT_ID=$(gh issue comment $ISSUE --body "Wow, we have a new issue!" --repo $REPO)
+          echo "COMMENT_ID is $COMMENT_ID"
+          echo "COMMENTID=$COMMENT_ID" >> $GITHUB_OUTPUT
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
           REPO: ${{ github.event.repository.full_name }}
-      - name: show comment id
-        run: echo "Comment id is $COMMENT_ID"
+
+      - name: Show comment_id
+        run: echo "COMMENT_ID is $COM_ID"
+        env:
+        COM_ID: ${{steps.add_comment.outputs.COMMENTID}}
