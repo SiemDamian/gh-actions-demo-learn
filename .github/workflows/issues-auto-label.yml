@@ -6,7 +6,7 @@ jobs:
   label:
     permissions:
       issues: write
-    runs-onL ubuntu-latest
+    runs-on: ubuntu-latest
     steps:  
     - name: Change label to "auto assigned"
       if: startsWith(github.event.comment.body, '/assign')
