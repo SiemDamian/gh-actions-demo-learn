@@ -1,0 +1,1 @@
+[![Python Uppercase Build](https://github.com/SiemDamian/gh-actions-demo-learn/actions/workflows/python-uppercase-build.yml/badge.svg)](https://github.com/SiemDamian/gh-actions-demo-learn/actions/workflows/python-uppercase-build.yml)
